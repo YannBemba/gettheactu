@@ -1,4 +1,6 @@
 package com.example.gettheactu.models
 
-class Source {
-}
+data class Source(
+    val id: Any,
+    val name: String
+)
