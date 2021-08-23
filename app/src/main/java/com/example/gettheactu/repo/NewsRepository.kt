@@ -1,4 +1,8 @@
 package com.example.gettheactu.repo
 
-class NewsRepository {
+import com.example.gettheactu.database.ArticleDatabase
+
+class NewsRepository(
+    val db: ArticleDatabase
+) {
 }
