@@ -33,7 +33,7 @@ class BreakingNewsFragment : Fragment() {
 
         setupRecyclerView()
 
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.breakingNews.observe(viewLifecycleOwner, { response ->
             when(response) {
                 is Resource.Success -> {
                     hideProgressBar()
