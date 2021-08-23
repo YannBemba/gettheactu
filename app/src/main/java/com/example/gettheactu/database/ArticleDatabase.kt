@@ -17,7 +17,7 @@ abstract class ArticleDatabase: RoomDatabase() {
     companion object {
         @Volatile
         private var instance: ArticleDatabase? = null
-        private val LOCK = Any() // Syncronize single instance
+        private val LOCK = Any()
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: createDatabase(context).also { it ->
