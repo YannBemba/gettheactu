@@ -8,7 +8,7 @@ import com.example.gettheactu.models.Article
 interface ArticleDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(article: Article): Long
+    suspend fun upsert(article: Article): Long
 
     @Query("SELECT * FROM articles")
     fun getArticles(): LiveData<List<Article>>

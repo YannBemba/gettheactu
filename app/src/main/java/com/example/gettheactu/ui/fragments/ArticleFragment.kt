@@ -11,6 +11,7 @@ import com.example.gettheactu.NewsActivity
 import com.example.gettheactu.R
 import com.example.gettheactu.databinding.FragmentArticleBinding
 import com.example.gettheactu.util.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class ArticleFragment : Fragment() {
@@ -31,6 +32,12 @@ class ArticleFragment : Fragment() {
         binding.webView.apply {
             webViewClient = WebViewClient()
             loadUrl(article.url)
+        }
+
+        binding.fab.setOnClickListener {
+            viewModel.saveArticle(article)
+            Snackbar.make(it, "Article saved successfully", Snackbar.LENGTH_SHORT)
+                .show()
         }
 
         return binding.root
