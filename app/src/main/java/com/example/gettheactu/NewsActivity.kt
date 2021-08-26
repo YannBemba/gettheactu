@@ -8,7 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.gettheactu.database.ArticleDatabase
 import com.example.gettheactu.databinding.ActivityNewsBinding
 import com.example.gettheactu.repo.NewsRepository
-import com.example.gettheactu.ui.fragments.NewsViewModelProviderFactory
+import com.example.gettheactu.ui.NewsViewModelProviderFactory
 import com.example.gettheactu.util.NewsViewModel
 
 class NewsActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class NewsActivity : AppCompatActivity() {
         val newsNavHostFragment = binding.newsNavHostFragment
 
         val newsRepository = NewsRepository(ArticleDatabase(this))
-        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
+        val viewModelProviderFactory = NewsViewModelProviderFactory(application ,newsRepository)
 
         viewModel = ViewModelProvider(this, viewModelProviderFactory)[NewsViewModel::class.java]
 
